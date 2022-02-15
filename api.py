@@ -16,8 +16,8 @@ def engine():
     b = np.array(request_data['b'])
     c = np.array(request_data['c'])
     PD = request_data['PD']
-    P_min = np.array([0, 0, 0])
-    P_max = np.array([PD, PD, PD])
+    P_min = np.array(request_data['pmin'])
+    P_max = np.array(request_data['pmax'])
 
     [P, C, Total_Cost] = load_dispatch(n, a, b, c, P_min, P_max, PD)
 
@@ -32,4 +32,4 @@ def engine():
     }
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run( port=5001)
